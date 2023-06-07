@@ -1,10 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import creditReducer from 'src/AOS/slices/creditSlice';
 import magicLinkReducer from '../slices/magicLinkSlice';
+import paymentReducer from '../slices/paymentSlice';
 import scriptingReducer from '../slices/scriptingSlice';
 
 const rootReducer = combineReducers({
   magicLink: magicLinkReducer,
   scripting: scriptingReducer,
+  credit: creditReducer,
+  payment: paymentReducer,
 });
 
 export const store = configureStore({
