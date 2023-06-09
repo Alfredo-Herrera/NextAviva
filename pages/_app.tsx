@@ -6,35 +6,38 @@ import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import type { ReactElement, ReactNode } from 'react';
-import { wrapper } from '../redux/store';
+import '../styles/globals.css';
 import theme from '../styles/theme';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  // eslint-disable-next-line no-unused-vars
-  getLayout?: (page: ReactElement) => ReactNode;
+    // eslint-disable-next-line no-unused-vars
+    getLayout?: (page: ReactElement) => ReactNode;
 };
 
 interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache;
-  Component: NextPageWithLayout;
+    emotionCache?: EmotionCache;
+    Component: NextPageWithLayout;
 }
 
 function MyApp(props: MyAppProps) {
-  const { Component, pageProps } = props;
+    const { Component, pageProps } = props;
 
-  const getLayout = Component.getLayout ?? ((page) => page);
+    const getLayout = Component.getLayout ?? ((page) => page);
 
-  return (
-    <>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {getLayout(<Component {...pageProps} />)}
-      </ThemeProvider>
-    </>
-  );
+    return (
+        <>
+            <Head>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1, width=device-width"
+                />
+            </Head>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                {getLayout(<Component {...pageProps} />)}
+            </ThemeProvider>
+        </>
+    );
 }
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;

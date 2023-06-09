@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import { useSnackbar, VariantType, WithSnackbarProps } from 'notistack';
+import { useSnackbar, VariantType } from 'notistack';
 import React from 'react';
 
 export interface ToastAction {
@@ -7,7 +7,7 @@ export interface ToastAction {
   action: () => void;
 }
 
-let useSnackbarRef: WithSnackbarProps;
+let useSnackbarRef: any;
 export const SnackbarUtilsConfigurator: React.FC = () => {
   useSnackbarRef = useSnackbar();
   return null;

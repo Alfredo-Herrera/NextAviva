@@ -1,4 +1,3 @@
-import Navbar from '@/molecules/Navbar';
 import Grid from '@mui/material/Grid';
 import Toolbar from '@mui/material/Toolbar';
 import Head from 'next/head';
@@ -23,7 +22,7 @@ const MainLayout: FC<mainInterface> = ({ children, title }) => {
       <main>
         <Grid container>
           <Grid item md={12}>
-            <Navbar />
+            {/* <DashboardHeader isCollapse={false} onOpenSidebar={() => {}} /> */}
           </Grid>
           <Toolbar />
           <ContainerBody container>{children}</ContainerBody>

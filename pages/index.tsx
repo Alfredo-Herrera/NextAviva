@@ -11,7 +11,6 @@ const HomePage = () => {
         sx={{
           display: 'grid',
           placeItems: 'center',
-          marginBottom: '30px',
         }}
       >
         <h1>hola mundo</h1>
