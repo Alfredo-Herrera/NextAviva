@@ -31,10 +31,8 @@ export const ButtonLoading = styled(LoadingButton)`
 
 const Interview = () => {
     const refVideo = useRef(null);
-    const [cuestion, setCuestion] = useState(0);
-    console.log('🚀 ~ file: index.tsx:35 ~ Interview ~ cuestion:', cuestion);
-    const [viewData, setViewData] = useState(MockSelf[0]);
-    console.log('🚀 ~ file: index.tsx:36 ~ Interview ~ viewData:', viewData);
+    const [cuestion, setCuestion] = useState(3);
+    const [viewData, setViewData] = useState(MockSelf[3]);
     const [viewButtonNext, setViewButtonNext] = useState(false);
     const [loading, setLoading] = useState(false);
     const [viewDialog, setViewDialog] = useState(false);

@@ -5,21 +5,25 @@ import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import { Box, Fab, Stack } from '@mui/material';
 import { FC, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
+import ComfirmPhoto from '../ConfirmPhoto';
 
 type TakeSimpleDocumentProp = {
     closeDocument: () => void;
     nextQuestion: any;
+    ine: boolean;
 };
 
 const TakePhoto: FC<TakeSimpleDocumentProp> = ({
     closeDocument,
     nextQuestion,
+    ine = false,
 }) => {
     const display = true;
     const webcamRef = useRef<Webcam>(null);
     const [waitUserMaedia, setWaitUserMedia] = useState<boolean>(true);
     const [showTimer, setShowTimer] = useState<boolean>(false);
     const [blockButtonPhoto, setBlockButtonPhoto] = useState<boolean>(false);
+    const [imgSrc, setImgSrc] = useState<string>();
     const [facingMode, setFacingMode] = useState<'user' | 'environment'>(
         'user'
     );
@@ -30,9 +34,21 @@ const TakePhoto: FC<TakeSimpleDocumentProp> = ({
     const handleCapture = async () => {
         setBlockButtonPhoto(false);
         const imageSrc = webcamRef?.current?.getScreenshot();
-        closeDocument();
-        nextQuestion();
+        setImgSrc(() => imageSrc || '');
     };
+
+    if (imgSrc) {
+        return (
+            <ComfirmPhoto
+                closeDocument={closeDocument}
+                imgSrc={imgSrc}
+                existForm={false}
+                nextQuestion={nextQuestion}
+                ine={ine}
+            />
+        );
+    }
+
     return (
         <Box id="345" sx={{ width: '100%', height: '100%' }}>
             <Webcam

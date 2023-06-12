@@ -1,6 +1,7 @@
 import { TransitionDialogUp } from '@/atoms/TransitionDialogUp';
 import { Dialog, DialogContent } from '@mui/material';
 import { Dispatch, FC } from 'react';
+import MultiSelect from '../MultiSelect';
 import TakePhoto from '../TakePhoto';
 
 type VideoAskAnswerProp = {
@@ -27,6 +28,11 @@ const VideoAskAnswer: FC<VideoAskAnswerProp> = ({
           }
         : {};
 
+    const propsComponets = {
+        closeDocument: closeDialog,
+        nextQuestion: nextQuestion,
+    };
+
     return (
         <Dialog
             open={openDialog}
@@ -46,10 +52,15 @@ const VideoAskAnswer: FC<VideoAskAnswerProp> = ({
             fullWidth
         >
             <DialogContent sx={{}} dividers>
-                <TakePhoto
-                    closeDocument={closeDialog}
-                    nextQuestion={nextQuestion}
-                />
+                {component === 'photo' && (
+                    <TakePhoto {...propsComponets} ine={false} />
+                )}
+                {component === 'multiSelection' && (
+                    <MultiSelect {...propsComponets} />
+                )}
+                {component === 'photoIne' && (
+                    <TakePhoto {...propsComponets} ine />
+                )}
             </DialogContent>
         </Dialog>
     );

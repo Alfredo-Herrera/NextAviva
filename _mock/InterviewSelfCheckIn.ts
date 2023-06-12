@@ -60,3 +60,11 @@ export const MockSelf = [
         urlVideo: '/video.mp4',
     },
 ];
+
+export const OSR_EXAMPLE = [
+    { questionIdCode: 'Q8', answer: 'Alfredo', checked: true },
+    { questionIdCode: 'Q9', answer: 'Herrera', checked: true },
+    { questionIdCode: 'Q9_1', answer: 'Ventura', checked: true },
+    { questionIdCode: 'Q11', answer: 'Ejemplo de Direccion', checked: true },
+    { questionIdCode: 'Q10', answer: 'HEHA970601HHGRRL06', checked: true },
+];
