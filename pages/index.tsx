@@ -1,26 +1,52 @@
 import MainLayout from '@/layouts/MainLayout/MainLayout';
+import CardPageKiosks from '@/molecules/CardPageKiosks';
 import Grid from '@mui/material/Grid';
 import { ReactElement } from 'react';
 
-const HomePage = () => {
-  return (
-    <>
-      <Grid
-        item
-        md={12}
-        sx={{
-          display: 'grid',
-          placeItems: 'center',
-        }}
-      >
-        <h1>hola mundo</h1>
-      </Grid>
-    </>
-  );
+const Home = () => {
+    return (
+        <Grid
+            container
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <Grid
+                item
+                md={4}
+                sx={{
+                    display: 'grid',
+                    placeItems: 'center',
+                }}
+            >
+                <CardPageKiosks
+                    href="/dashboard/Call"
+                    urlImage="/illustrations/CallVideo.png"
+                    title="Llamada Agente"
+                />
+            </Grid>
+            <Grid
+                item
+                md={4}
+                sx={{
+                    display: 'grid',
+                    placeItems: 'center',
+                }}
+            >
+                <CardPageKiosks
+                    href="/dashboard/selfCheckIn"
+                    urlImage="/illustrations/CallCenter.png"
+                    title={'Pre Registro'}
+                />
+            </Grid>
+        </Grid>
+    );
 };
 
-HomePage.getLayout = function getLayout(page: ReactElement) {
-  return <MainLayout title="Home">{page}</MainLayout>;
+Home.getLayout = function getLayout(page: ReactElement) {
+    return <MainLayout title="Dashboard">{page}</MainLayout>;
 };
 
-export default HomePage;
+export default Home;
