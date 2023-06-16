@@ -15,7 +15,7 @@ type CardPRops = {
     disabled?: boolean;
 };
 
-const CardPageKiosks: FC<CardPRops> = ({ urlImage, title, href, disabled }) => {
+const CardPageKiosks: FC<CardPRops> = ({ urlImage, title, href }) => {
     return (
         <ArticleContainer>
             <Link href={href}>

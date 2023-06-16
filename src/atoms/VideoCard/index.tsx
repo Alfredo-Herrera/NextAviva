@@ -1,63 +1,73 @@
-import PlayCircleFilledTwoToneIcon from '@mui/icons-material/PlayCircleFilledTwoTone';
-import IconButton from '@mui/material/IconButton';
-import Box from '@mui/system/Box';
-import { useState } from 'react';
+import PlayIllustrationVideo from '@/assets/PlayVideo';
+import { Box, Button, Grid } from '@mui/material';
+import Image from 'next/image';
+import { FC, useEffect, useState } from 'react';
+import palette from '../../../styles/theme/palette';
+import { GridContaineButton } from './styles';
 // eslint-disable-next-line import/no-extraneous-dependencies
 
-const VideoCard = () => {
+const VideoCard: FC<{ playVideo: any; play: boolean }> = ({ playVideo }) => {
     const [play, setPlay] = useState(false);
+    useEffect(() => {
+        if (play) {
+            const video = document.getElementById(
+                'videoSelf'
+            ) as HTMLVideoElement;
+            video.play();
+        }
+    }, [play]);
+
     return (
-        <Box sx={{ display: 'grid', placeItems: 'center', height: '100vh' }}>
-            {play ? (
+        <Grid
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <Box>
                 <video
-                    id="video"
-                    width="100%"
-                    height="100%"
-                    style={{
-                        maxHeight: '600px',
-                        maxWidth: '400px',
-                    }}
-                    autoPlay
+                    id="videoSelf"
+                    width={380}
+                    height={600}
                     webkit-playsinline="true"
                     playsInline
                     preload="auto"
                     controls
                 >
                     <source
-                        src="https://drive.google.com/uc?export=download&id=1UWDXdDdO2b6Dz0ajcYF49cfwpwe-DJBY"
+                        src="https://drive.google.com/uc?export=download&id=1oBtOIDdU1RUKkgkcvuu-0SAs_h6pwodV"
                         type="video/mp4"
                     />
                     Your browser does not support the video tag.
                 </video>
-            ) : (
-                <Box
-                    sx={{
-                        maxHeight: '600px',
-                        maxWidth: '400px',
-                        borderRadius: '10px',
-                        display: 'flex',
-                    }}
-                >
-                    <img
-                        style={{
-                            objectFit: 'cover',
-                            width: '100%',
-                            height: '100%',
-                            borderRadius: '10px',
-                        }}
-                        src="./illustrations/ImagenVideo.png"
-                        alt="foto1"
-                    />
-                    <IconButton
-                        sx={{ left: '-60%' }}
-                        color="info"
-                        onClick={() => setPlay(true)}
-                    >
-                        <PlayCircleFilledTwoToneIcon />
-                    </IconButton>
-                </Box>
+            </Box>
+            {!play && (
+                <>
+                    <Box sx={{ position: 'absolute' }}>
+                        <Image
+                            src="/illustrations/ImagenVideo.png"
+                            alt="foto1"
+                            width={400}
+                            height={600}
+                        />
+                    </Box>
+                    <GridContaineButton>
+                        <Button
+                            onClick={() => {
+                                setPlay(true);
+                                playVideo(true);
+                            }}
+                        >
+                            <PlayIllustrationVideo
+                                circleFill={'#FDFDFD'}
+                                playFill={palette.light.primary.main}
+                            />
+                        </Button>
+                    </GridContaineButton>
+                </>
             )}
-        </Box>
+        </Grid>
     );
 };
 

@@ -17,7 +17,7 @@ export const ImageContainer2 = styled('img')`
 `;
 
 export const TitleQuestion = styled(Typography)<{ text: any }>`
-    color: ${(props) => palette.light.primary.main};
+    color: ${palette.light.primary.main};
     width: 95%;
     text-align: ${(props) =>
         props.text.length > 40 ? 'inherit' : 'center'} !important;

@@ -36,7 +36,7 @@ const Home = () => {
                 }}
             >
                 <CardPageKiosks
-                    href="/dashboard/selfCheckIn"
+                    href="/SelfCheckIn"
                     urlImage="/illustrations/CallCenter.png"
                     title={'Pre Registro'}
                 />
