@@ -23,7 +23,7 @@ const Home = () => {
                 }}
             >
                 <CardPageKiosks
-                    href="/dashboard/Call"
+                    href="/CallVideo"
                     urlImage="/illustrations/CallVideo.png"
                     title="Llamada Agente"
                 />

@@ -1,7 +1,5 @@
 import VideoCard from '@/atoms/VideoCard';
-import SecondVideoCard from '@/atoms/VideoCard/SecondCard';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
-import Fade from '@mui/material/Fade';
 import Grid from '@mui/material/Grid';
 import { ReactElement, useEffect, useState } from 'react';
 
@@ -40,15 +38,8 @@ const SelfCheckIn = () => {
                 alignItems: 'center',
             }}
         >
-            <Grid item md={secondPlay ? 6 : 12} sm={secondPlay ? 6 : 12}>
+            <Grid item md={12} sm={12}>
                 <VideoCard playVideo={setPlay} play={play} />
-            </Grid>
-            <Grid item md={secondPlay ? 6 : 12} sm={secondPlay ? 6 : 12}>
-                <Fade in={secondPlay} timeout={1000}>
-                    <div>
-                        <SecondVideoCard />
-                    </div>
-                </Fade>
             </Grid>
         </Grid>
     );

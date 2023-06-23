@@ -8,15 +8,15 @@ const SecondVideoCard: FC = () => {
                 <Box>
                     <video
                         id="videoSelfDos"
-                        width={400}
-                        height={600}
+                        width={600}
+                        height={400}
                         webkit-playsinline="true"
                         playsInline
                         preload="auto"
                         controls
                     >
                         <source
-                            src="https://drive.google.com/uc?export=download&id=1UWDXdDdO2b6Dz0ajcYF49cfwpwe-DJBY"
+                            src="https://drive.google.com/uc?export=download&id=1P02aplZ6NKS29WceG6dC5VGIUxHswdD8"
                             type="video/mp4"
                         />
                         Your browser does not support the video tag.

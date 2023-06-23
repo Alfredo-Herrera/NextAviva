@@ -6,7 +6,9 @@ import palette from '../../../styles/theme/palette';
 import { GridContaineButton } from './styles';
 // eslint-disable-next-line import/no-extraneous-dependencies
 
-const VideoCard: FC<{ playVideo: any; play: boolean }> = ({ playVideo }) => {
+const VideoCompleto: FC<{ playVideo: any; play: boolean }> = ({
+    playVideo,
+}) => {
     const [play, setPlay] = useState(false);
     useEffect(() => {
         if (play) {
@@ -71,4 +73,4 @@ const VideoCard: FC<{ playVideo: any; play: boolean }> = ({ playVideo }) => {
     );
 };
 
-export default VideoCard;
+export default VideoCompleto;
