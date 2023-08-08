@@ -9,9 +9,8 @@ const VideoUploader = () => {
     const [percentage, setPercentage] = useState(0);
 
     const hasSpecialCharacters = (inputString: string) => {
-        const specialCharactersRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
-
-        return specialCharactersRegex.test(inputString);
+        const specialCharacterPattern = /[!@#$%^&*()_+\-=[\]{};':"\\|,<>/?]+/;
+        return specialCharacterPattern.test(inputString);
     };
     useEffect(() => {
         let compressor = new VideoZipper({
