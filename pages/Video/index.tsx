@@ -8,10 +8,18 @@ const VideoUploader = () => {
     const [fileSelect, setFileSelect] = useState<File>();
     const [percentage, setPercentage] = useState(0);
 
-    const hasSpecialCharacters = (inputString: string) => {
-        const specialCharacterPattern = /[!@#$%^&*()_+\-=[\]{};':"\\|,<>/?]+/;
-        return specialCharacterPattern.test(inputString);
+    // const hasSpecialCharacters = (inputString: string) => {
+    //     const specialCharacterPattern = /[!@#$%^&*()_+\-=[\]{};':"\\|,<>/?]+/;
+    //     return specialCharacterPattern.test(inputString);
+    // };
+
+    const hasAccents = (str: string) => {
+        console.log('🚀 ~ file: index.tsx:17 ~ hasAccents ~ str:', str);
+        const regex = /^[A-Za-z0-9.]+$/;
+        console.log('accentRegex.test(str)', regex.test(str));
+        return !regex.test(str);
     };
+
     useEffect(() => {
         let compressor = new VideoZipper({
             quality: 'low',
@@ -27,7 +35,7 @@ const VideoUploader = () => {
             let files = (e.target as HTMLInputElement).files;
 
             let file = files![0];
-            if (hasSpecialCharacters(file.name)) {
+            if (hasAccents(file.name)) {
                 alert('Video con nombre no valido, renombre el archivo');
             } else {
                 setFileSelect(file);
