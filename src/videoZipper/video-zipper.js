@@ -17,11 +17,11 @@ export default class VideoZipper {
     #failFunc;
     #ffmpeg;
     #qualities = {
-        veryHigh: { name: 'Very High', mp4: 12, webm: 18 },
-        high: { name: 'High', mp4: 18, webm: 24 },
-        medium: { name: 'Medium', mp4: 23, webm: 29 },
-        low: { name: 'Low', mp4: 28, webm: 32 },
-        veryLow: { name: 'Very Low', mp4: 34, webm: 38 },
+        veryHigh: { name: 'Very High', mp4: 12, mov: 12, webm: 18 },
+        high: { name: 'High', mp4: 18, mov: 18, webm: 24 },
+        medium: { name: 'Medium', mp4: 23, mov: 23, webm: 29 },
+        low: { name: 'Low', mp4: 28, mov: 28, webm: 32 },
+        veryLow: { name: 'Very Low', mp4: 34, mov: 34, webm: 38 },
     };
 
     constructor(options = {}, load = false) {
