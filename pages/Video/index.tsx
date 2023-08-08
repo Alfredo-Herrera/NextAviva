@@ -8,6 +8,8 @@ const VideoUploader = () => {
     const [fileSelect, setFileSelect] = useState<File>();
     const [percentage, setPercentage] = useState(0);
 
+    const [disableInput, setDisableInput] = useState(false);
+
     // const hasSpecialCharacters = (inputString: string) => {
     //     const specialCharacterPattern = /[!@#$%^&*()_+\-=[\]{};':"\\|,<>/?]+/;
     //     return specialCharacterPattern.test(inputString);
@@ -26,6 +28,7 @@ const VideoUploader = () => {
         });
         compressor.load().then(() => {
             console.log('loaded');
+            setDisableInput(true);
         });
         let downloadElement = document.getElementById('download');
         let preview = document.getElementById('preview') as HTMLVideoElement;
@@ -75,6 +78,7 @@ const VideoUploader = () => {
     return (
         <div>
             <input
+                disabled={!disableInput}
                 id="file"
                 name="file"
                 type="file"
