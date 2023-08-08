@@ -15,7 +15,7 @@ const VideoUploader = () => {
 
     const hasAccents = (str: string) => {
         console.log('🚀 ~ file: index.tsx:17 ~ hasAccents ~ str:', str);
-        const regex = /^[A-Za-z0-9.]+$/;
+        const regex = /^[A-Za-z0-9._-]+$/;
         console.log('accentRegex.test(str)', regex.test(str));
         return !regex.test(str);
     };
