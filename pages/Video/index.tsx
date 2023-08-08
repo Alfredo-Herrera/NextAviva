@@ -8,6 +8,11 @@ const VideoUploader = () => {
     const [fileSelect, setFileSelect] = useState<File>();
     const [percentage, setPercentage] = useState(0);
 
+    const hasSpecialCharacters = (inputString: string) => {
+        const specialCharactersRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+
+        return specialCharactersRegex.test(inputString);
+    };
     useEffect(() => {
         let compressor = new VideoZipper({
             quality: 'low',
@@ -20,25 +25,37 @@ const VideoUploader = () => {
         const files = document!.getElementById('file') as HTMLInputElement;
 
         files!.addEventListener('input', (e) => {
-            const files = (e.target as HTMLInputElement).files;
+            let files = (e.target as HTMLInputElement).files;
+
             let file = files![0];
-            setFileSelect(file);
+            if (hasSpecialCharacters(file.name)) {
+                alert('Video con nombre no valido, renombre el archivo');
+            } else {
+                setFileSelect(file);
 
-            compressor.start(() => {
-                downloadElement!.style.display = 'none';
-                preview!.style.display = 'none';
-            });
+                compressor.start(() => {
+                    downloadElement!.style.display = 'none';
+                    preview!.style.display = 'none';
+                });
 
-            compressor.progress((percent: number) => {
-                setPercentage(percent);
-            });
+                compressor.progress((percent: number) => {
+                    setPercentage(percent);
+                });
 
-            compressor.compress(file).then(($this) => {
-                preview!.src = compressor.getUrl();
-                preview!.play();
-                preview!.style.display = 'block';
-                downloadElement!.style.display = 'block';
-            });
+                compressor.compress(file).then(($this) => {
+                    preview!.src = compressor.getUrl();
+                    preview!.play();
+                    preview!.style.display = 'block';
+                    downloadElement!.style.display = 'block';
+                });
+
+                compressor.fail((error: any) => {
+                    console.log(
+                        '🚀 ~ file: index.tsx:44 ~ compressor.fail ~ error:',
+                        error
+                    );
+                });
+            }
         });
 
         downloadElement!.addEventListener('click', () => {

@@ -7,7 +7,7 @@ export default class VideoZipper {
     #loaded = false;
     #quality = 'medium';
     #crf;
-    #name = 'output';
+    #name = '';
     #extension = 'mp4';
     #outputName = null;
     #progressFunc;
@@ -33,7 +33,7 @@ export default class VideoZipper {
         this.#startFunc = options.start || null;
         this.#endFunc = options.end || null;
         this.#failFunc = options.fail || null;
-        this.#name = options.name || 'output';
+        this.#name = options.name || 'video';
 
         // Create an instance of FFmpeg and load it
         this.#ffmpeg = createFFmpeg({
