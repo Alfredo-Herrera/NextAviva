@@ -85,7 +85,7 @@ const VideoUploader = () => {
                 accept="video/*"
                 ref={videoRef}
             />
-
+            <h1>hola mundo</h1>
             <div id="loading" className="blur-loading">
                 <div className="spinner"></div>
             </div>
