@@ -318,7 +318,7 @@ var createFFmpegCore = (function () {
             F,
             G,
             Sa,
-            Ta = f.INITIAL_MEMORY || 1073741824;
+            Ta = 1073741824;
         if (l) (Ca = f.wasmMemory), (oa = f.buffer);
         else if (f.wasmMemory) Ca = f.wasmMemory;
         else if (
