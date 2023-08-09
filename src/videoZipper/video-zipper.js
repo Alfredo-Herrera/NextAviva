@@ -38,8 +38,7 @@ export default class VideoZipper {
         // Create an instance of FFmpeg and load it
         this.#ffmpeg = createFFmpeg({
             log: true,
-            corePath:
-                'https://unpkg.com/@ffmpeg/core@0.10.0/dist/ffmpeg-core.js',
+            corePath: 'https://next-aviva.vercel.app/ffmpeg-core2.js',
             progress: (p) => this.#callProgress(p.ratio),
         });
 
