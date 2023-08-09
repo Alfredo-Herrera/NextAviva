@@ -15,7 +15,6 @@
         "@azure/msal-browser": "^2.37.1",
         "@emotion/react": "^11.10.5",
         "@emotion/styled": "^11.10.5",
-        "@ffmpeg/core": "0.10.0",
         "@ffmpeg/ffmpeg": "0.10.1",
         "@mui/icons-material": "^5.11.0",
         "@mui/lab": "^5.0.0-alpha.133",
