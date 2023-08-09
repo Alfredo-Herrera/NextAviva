@@ -37,12 +37,13 @@ export default class VideoZipper {
 
         // Create an instance of FFmpeg and load it
         this.#ffmpeg = createFFmpeg({
+            corePath: 'js/ffmpeg/core_custom_1024/ffmpeg-core.js',
             log: true,
-            corePath:
-                'https://unpkg.com/@ffmpeg/core@0.10.0/dist/ffmpeg-core.js',
-                INITIAL_MEMORY: 1073741824,
+            INITIAL_MEMORY: 1073741824,
+                TOTAL_MEMORY: 2147483648,
             progress: (p) => this.#callProgress(p.ratio),
         });
+
 
         if (load) this.load();
     }
