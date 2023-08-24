@@ -4068,6 +4068,11 @@ js-yaml@^4.1.0:
   dependencies:
     argparse "^2.0.1"
 
+jscanify@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/jscanify/-/jscanify-1.0.0.tgz#db17d0549716def0742996c6551fcb6e0dac913f"
+  integrity sha512-mNh1pDdq3hmSQ0f1ivuz7Dmy+/OKi7Q1qSQKfDVRiWUd9QnhU5yFAauYqSGV7tNg2TwJiD9xy0oGEIQzLlLGTA==
+
 jsdom@^20.0.0:
   version "20.0.3"
   resolved "https://registry.npmjs.org/jsdom/-/jsdom-20.0.3.tgz"
